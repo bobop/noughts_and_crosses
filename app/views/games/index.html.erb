@@ -1,2 +1,7 @@
 <h1>Noughts & Crosses</h1>
 <p><%= link_to 'New Game!', games_path, method: :post %></p>
+
+<h2>Games</h2>
+<% @games.each do |game| %>
+  <p><%= game.inspect %></p>
+<% end %>
