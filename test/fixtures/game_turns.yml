@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  game: one
+  square_number: 1
+  player: MyString
+
+two:
+  game: two
+  square_number: 1
+  player: MyString

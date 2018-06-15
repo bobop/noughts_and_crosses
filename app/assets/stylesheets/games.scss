@@ -2,11 +2,30 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+body {
+  font-size: 1em;
+  line-height: 1.2;
+  font-weight: 400;
+  font-family: "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #222;
+}
+
+#state {
+  background-color: #f6f8fa;
+  padding: 10px; 
+}
+
 .board_wrapper {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-gap: 10px;
+  grid-gap: 0px;
   grid-auto-rows: minmax(100px, auto);
+}
+.square {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 3em;
 }
 .one {
   grid-column: 1;
@@ -15,6 +34,8 @@
 .two { 
   grid-column: 2;
   grid-row: 1;
+  border-left: 2px solid black;
+  border-right: 2px solid black;
 }
 .three {
   grid-column: 3;
@@ -23,14 +44,19 @@
 .four {
   grid-column: 1;
   grid-row: 2;
+  border-top: 2px solid black;
+  border-bottom: 2px solid black;
 }
 .five {
   grid-column: 2;
   grid-row: 2;
+  border: 2px solid black;
 }
 .six {
   grid-column: 3;
   grid-row: 2;
+  border-top: 2px solid black;
+  border-bottom: 2px solid black;
 }
 .seven {
   grid-column: 1;
@@ -39,6 +65,8 @@
 .eight {
   grid-column: 2;
   grid-row: 3;
+  border-left: 2px solid black;
+  border-right: 2px solid black;
 }
 .nine {
   grid-column: 3;

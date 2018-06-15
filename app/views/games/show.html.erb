@@ -1,16 +1,15 @@
-<h1>Games#show</h1>
-<p>Game = <%= @game.game_uuid %></p>
+<p>Send this link to Player 2: <%= game_url(@game.game_uuid) %></p>
 <p id="state"></p>
 <p id="player_piece"></p>
 
 <div class="board_wrapper">
-  <div class="square one" id='1' onclick='select_square(1)'>One</div>
-  <div class="square two" id='2' onclick='select_square(2)'>Two</div>
-  <div class="square three" id='3' onclick='select_square(3)'>Three</div>
-  <div class="square four" id='4' onclick='select_square(4)'>Four</div>
-  <div class="square five" id='5' onclick='select_square(5)'>Five</div>
-  <div class="square six" id='6' onclick='select_square(6)'>Six</div>
-  <div class="square seven" id='7' onclick='select_square(7)'>Seven</div>
-  <div class="square eight" id='8' onclick='select_square(8)'>Eight</div>
-  <div class="square nine" id='9' onclick='select_square(9)'>Nine</div>
+  <div class="square one" id='1' onclick='select_square(1)'></div>
+  <div class="square two" id='2' onclick='select_square(2)'></div>
+  <div class="square three" id='3' onclick='select_square(3)'></div>
+  <div class="square four" id='4' onclick='select_square(4)'></div>
+  <div class="square five" id='5' onclick='select_square(5)'></div>
+  <div class="square six" id='6' onclick='select_square(6)'></div>
+  <div class="square seven" id='7' onclick='select_square(7)'></div>
+  <div class="square eight" id='8' onclick='select_square(8)'></div>
+  <div class="square nine" id='9' onclick='select_square(9)'></div>
 </div>
