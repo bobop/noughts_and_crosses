@@ -24,8 +24,8 @@ class Game < ApplicationRecord
   end
 
   def self.select_square(game_uuid, player_uuid, data)
-    puts "--- Game model self.select_square game_uuid = #{game_uuid}"
-    puts "--- Game model self.select_square player_uuid = #{player_uuid}"
+    # puts "--- Game model self.select_square game_uuid = #{game_uuid}"
+    # puts "--- Game model self.select_square player_uuid = #{player_uuid}"
     @game = Game.find_by(game_uuid: game_uuid)
 
     # Determine the last player who made a move
@@ -40,7 +40,7 @@ class Game < ApplicationRecord
       other_player_uuid = @game.host_uuid
       piece = 'O'
     end
-    puts "--- Game model self.select_square other_player_uuid = #{other_player_uuid}"
+    # puts "--- Game model self.select_square other_player_uuid = #{other_player_uuid}"
 
     # Do not continue if current player was also the last player
     # return if last_player == player
@@ -59,13 +59,13 @@ class Game < ApplicationRecord
       [3,5,7]
     ]
     player_squares = @game.game_turns.where(player: player).collect(&:square_number).sort
-    puts "--- Game select_square player_squares = #{player_squares.inspect}"
+    # puts "--- Game select_square player_squares = #{player_squares.inspect}"
 
     game_won = false
     winning_squares.each do |winning_array|
-      puts "--- Game select_square winning_array = #{winning_array.inspect}"
+      # puts "--- Game select_square winning_array = #{winning_array.inspect}"
       square_array = (winning_array - player_squares)
-      puts "--- Game select_square square_array = #{square_array.inspect}"
+      # puts "--- Game select_square square_array = #{square_array.inspect}"
       if square_array.empty?
         game_won = true
         break
@@ -77,14 +77,14 @@ class Game < ApplicationRecord
       selection: data['data'],
       piece: piece,
       turn: 'Other player\'s turn',
-      game_won: game_won ? 'Congratulations, you won :)' : nil
+      game_won: game_won ? 'Congratulations, you won :)' : ''
     }
     ActionCable.server.broadcast "game_#{game_uuid}_player_#{other_player_uuid}", {
       action: 'select_square',
       selection: data['data'],
       piece: piece,
       turn: 'Your turn',
-      game_won: game_won ? 'Sorry, you lost :(' : nil
+      game_won: game_won ? 'Sorry, you lost :(' : ''
      }
   end
 end

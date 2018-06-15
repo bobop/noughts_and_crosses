@@ -14,7 +14,7 @@ App.game = App.cable.subscriptions.create { channel: "GameChannel", game_uuid: w
         document.getElementById("state").innerText = data.turn
         document.getElementById("player_piece").innerText = data.msg
       when "select_square"
-        console.log('App.game received select_square data = ' + data + ', selection = ' + data.selection)
+        # console.log('App.game received select_square data = ' + data + ', selection = ' + data.selection)
         document.getElementById(data.selection).innerText = data.piece
         if data.game_won.length > 0
           document.getElementById("state").innerText = data.game_won
@@ -22,5 +22,5 @@ App.game = App.cable.subscriptions.create { channel: "GameChannel", game_uuid: w
           document.getElementById("state").innerText = data.turn
 
   select_square: (square_number) ->
-    console.log('App.game select_square')
+    # console.log('App.game select_square')
     @perform 'select_square', data: square_number

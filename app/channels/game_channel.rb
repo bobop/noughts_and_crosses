@@ -9,7 +9,7 @@ class GameChannel < ApplicationCable::Channel
   end
 
   def select_square(data)
-    puts "--- GameChannel select_square data = #{data.inspect}"
+    # puts "--- GameChannel select_square data = #{data.inspect}"
     Game.select_square(params[:game_uuid], uuid, data)
   end
 
